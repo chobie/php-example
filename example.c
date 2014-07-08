@@ -6,7 +6,7 @@ PHP_MINIT_FUNCTION(EXAMPLE)
 	return SUCCESS;
 }
 
-PHP_MSHTUDOWN_FUNCTION(EXAMPLE)
+PHP_MSHUTDOWN_FUNCTION(EXAMPLE)
 {
 	fprintf(stderr, "MSHUTDOWN");
 	return SUCCESS;
@@ -23,7 +23,7 @@ zend_module_entry EXAMPLE_module_entry = {
     PHP_EXAMPLE_EXTNAME,
     NULL, 					/* Functions */
     PHP_MINIT(EXAMPLE),	    /* MINIT */
-    NULL, 	                /* MSHUTDOWN */
+    PHP_MSHUTDOWN(EXAMPLE), 	                /* MSHUTDOWN */
     NULL, 	                /* RINIT */
     NULL,	                /* RSHUTDOWN */
     PHP_MINFO(EXAMPLE),	    /* MINFO */
